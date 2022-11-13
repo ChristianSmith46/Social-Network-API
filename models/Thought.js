@@ -38,7 +38,7 @@ thoughtSchema
     return this.reactions.length;
   });
 
-// Initialize our User model
+// Initialize our Thought model
 const Thought = model('thought', userSchema);
 
 module.exports = Thought;

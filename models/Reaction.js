@@ -19,8 +19,8 @@ const reactionSchema = new Schema(
       type: Date,
       default: Date.now,
       get: (date) => {
-        return date.localeTimeZone();
-      }
+        return new Date(date).toLocaleString();
+    }
     },
   },
   {

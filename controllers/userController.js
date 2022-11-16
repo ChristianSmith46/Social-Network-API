@@ -2,12 +2,14 @@ const { User } = require('../models');
 
 module.exports = {
 
+    // Find all users
     getUsers(req, res) {
         User.find()
             .then((users) => res.json(users))
             .catch((err) => res.status(500).json(err));
     },
 
+    // Find one user based on userId
     getSingleUser(req, res) {
         User.findOne({ _id: req.params.userId })
             .select('-__v')
@@ -19,12 +21,14 @@ module.exports = {
             .catch((err) => res.status(500).json(err));
     },
 
+    // Create new user
     createUser(req, res) {
         User.create(req.body)
             .then((dbUserData) => res.json(dbUserData))
             .catch((err) => res.status(500).json(err));
     },
 
+    // Update a users info
     updateUser(req, res) {
         User.findOneAndUpdate(
             { _id: req.params.userId },
@@ -42,6 +46,7 @@ module.exports = {
             });
     },
 
+    // Delete a user by id
     deleteUser(req, res) {
         User.findOneAndDelete({ _id: req.params.userId })
             .then((user) => {
@@ -55,6 +60,7 @@ module.exports = {
             });
     },
 
+    // Add friend to user
     addFriend(req, res) {
         User.findOneAndUpdate(
             { _id: req.params.userId },
@@ -74,6 +80,7 @@ module.exports = {
             });
     },
 
+    // Remove a friend from friendlist
     removeFriend(req, res) {
         User.findOneAndUpdate(
             { _id: req.params.userId },

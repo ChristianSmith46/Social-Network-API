@@ -24,7 +24,9 @@ const thoughtSchema = new Schema(
     },
     {
         toJSON: {
+            // Set getters to true to format createdAt
             getters: true,
+            // Add virtual to get reactionCount
             virtuals: true,
         },
         id: false,

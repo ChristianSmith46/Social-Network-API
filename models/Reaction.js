@@ -25,6 +25,7 @@ const reactionSchema = new Schema(
   },
   {
     toJSON: {
+      // Set getter to true to format createdAt
       getters: true,
     },
     id: false,
